@@ -440,7 +440,7 @@ Use this simulator to practice setting up your first LP position and see how dif
 
 **[Launch LP Position Simulator →](https://defi-university-app.web.app/interactives/liquidity-provision/lp-position-simulator.html)**
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/lp-position-simulator.html?courseId=liquidity-provision&interactionId=lp-position-simulator-lesson4" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/lp-position-simulator.html?course=liquidity-provision&id=lp-position-simulator" %}
 
 ---
 

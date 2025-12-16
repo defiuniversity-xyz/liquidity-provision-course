@@ -140,12 +140,6 @@ $$IL\% = 2 \times \frac{\sqrt{r}}{1 + r} - 1$$
 
 ---
 
-## 🧮 Interactive: Impermanent Loss Calculator
-
-Use this calculator to see exactly how IL affects your position at different price changes:
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/il-calculator.html?courseId=liquidity-provision&interactionId=il-calculator-lesson3" %}
-
 ---
 
 ### Visual Representation
@@ -381,7 +375,7 @@ This is why professional LPs hedge their positions.
 
 Use this tool to analyze pool health metrics including TVL, volume, fees, and impermanent loss risk:
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html?courseId=liquidity-provision&interactionId=pool-health-analyzer-lesson3" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html?course=liquidity-provision&id=pool-health-analyzer" %}
 
 ---
 

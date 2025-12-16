@@ -315,7 +315,7 @@ Use this tool to optimize your Uniswap V3 concentrated liquidity positions by ca
 
 **[Launch Concentrated Liquidity Optimizer →](https://defi-university-app.web.app/interactives/liquidity-provision/concentrated-liquidity-optimizer.html)**
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/concentrated-liquidity-optimizer.html?courseId=liquidity-provision&interactionId=concentrated-liquidity-optimizer-lesson5" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/concentrated-liquidity-optimizer.html?course=liquidity-provision&id=concentrated-liquidity-optimizer" %}
 
 ## 🔑 Key Takeaways
 

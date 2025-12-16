@@ -266,7 +266,7 @@ Use this tool to plan your rebalancing strategies and optimize risk management a
 
 **[Launch Rebalancing Strategy Planner →](https://defi-university-app.web.app/interactives/liquidity-provision/rebalancing-strategy-planner.html)**
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/rebalancing-strategy-planner.html?courseId=liquidity-provision&interactionId=rebalancing-strategy-planner-lesson8" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/rebalancing-strategy-planner.html?course=liquidity-provision&id=rebalancing-strategy-planner" %}
 
 ## 🔑 Key Takeaways
 

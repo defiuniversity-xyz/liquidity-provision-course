@@ -302,7 +302,7 @@ V4 will allow custom fee logic via hooks:
 
 Use this calculator to compare fee accumulation across different fee tiers, protocols, and gas costs to optimize your profitability:
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/fee-accumulation-calculator.html?courseId=liquidity-provision&interactionId=fee-accumulation-calculator-lesson7" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/fee-accumulation-calculator.html?course=liquidity-provision&id=fee-accumulation-calculator" %}
 
 ## 🔑 Key Takeaways
 

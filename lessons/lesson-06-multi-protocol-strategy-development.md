@@ -285,7 +285,7 @@ Use this tool to compare pool health metrics across different protocols and chai
 
 **[Launch Pool Health Analyzer →](https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html)**
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html?courseId=liquidity-provision&interactionId=pool-health-analyzer-lesson6" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html?course=liquidity-provision&id=pool-health-analyzer" %}
 
 ## 🔑 Key Takeaways
 

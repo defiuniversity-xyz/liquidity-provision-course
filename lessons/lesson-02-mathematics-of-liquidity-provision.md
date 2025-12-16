@@ -242,7 +242,7 @@ Use this calculator to estimate your potential fee earnings and accumulation ove
 
 **[Launch Fee Accumulation Calculator →](https://defi-university-app.web.app/interactives/liquidity-provision/fee-accumulation-calculator.html)**
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/fee-accumulation-calculator.html?courseId=liquidity-provision&interactionId=fee-accumulation-calculator-lesson2" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/fee-accumulation-calculator.html?course=liquidity-provision&id=fee-accumulation-calculator" %}
 
 ---
 
@@ -338,12 +338,6 @@ Let's work through a complete example:
 - **Right**: Check pool depth first. Your trade might move price 50%+.
 
 ---
-
-### Interactive LP Calculator
-
-Use this tool to calculate your expected pool share, daily fees, and estimated APR:
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/lp-calculator.html?courseId=liquidity-provision&interactionId=lp-calculator-lesson2" %}
 
 ---
 

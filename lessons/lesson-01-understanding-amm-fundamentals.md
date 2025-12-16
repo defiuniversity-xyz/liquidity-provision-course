@@ -255,7 +255,7 @@ Use this interactive tool to calculate slippage impact for different trade sizes
 
 **[Launch Slippage Impact Calculator →](https://defi-university-app.web.app/interactives/liquidity-provision/slippage-impact-calculator.html)**
 
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/slippage-impact-calculator.html?courseId=liquidity-provision&interactionId=slippage-impact-calculator-lesson1" %}
+{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/slippage-impact-calculator.html?course=liquidity-provision&id=slippage-impact-calculator" %}
 
 ---
 
@@ -288,12 +288,6 @@ Let's examine a real pool to understand the mechanics:
 **Net Result**: Your actual return might be 5-8% APY, or even negative in volatile markets.
 
 ---
-
-### Interactive LP Calculator
-
-Use this interactive calculator to estimate potential returns from liquidity provision based on pool parameters:
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/lp-calculator.html?courseId=liquidity-provision&interactionId=lp-calculator-lesson1" %}
 
 ---
 
