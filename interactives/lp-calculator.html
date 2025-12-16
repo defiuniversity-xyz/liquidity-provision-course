@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP Position Calculator | DeFi University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://api.defiuniversity.xyz/api';
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        window.courseId = urlParams.get('course') || 'liquidity-provision';
+        window.interactionId = urlParams.get('id') || 'lp-calculator';
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                window.userToken = await user.getIdToken();
+                document.getElementById('calculator').classList.remove('hidden');
+                document.getElementById('login-prompt').classList.add('hidden');
+            } else {
+                document.getElementById('calculator').classList.add('hidden');
+                document.getElementById('login-prompt').classList.remove('hidden');
+            }
+            document.getElementById('loading').classList.add('hidden');
+        });
+        
+        window.recordInteraction = async function() {
+            if (!window.userToken || window.interactionRecorded) return;
+            
+            try {
+                await fetch(`${API_BASE_URL}/progress/interaction`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${window.userToken}`
+                    },
+                    body: JSON.stringify({
+                        courseId: window.courseId,
+                        interactionId: window.interactionId,
+                        type: 'calculator'
+                    })
+                });
+                window.interactionRecorded = true;
+                document.getElementById('points-badge').classList.remove('hidden');
+            } catch (e) {
+                console.error('Error recording interaction:', e);
+            }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #ffffff; }
+        .brand-font { font-family: 'Space Grotesk', sans-serif; }
+        input[type="number"] { -moz-appearance: textfield; }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    </style>
+</head>
+<body class="text-neutral-900 min-h-screen p-4 bg-white">
+    <div id="loading" class="flex items-center justify-center min-h-[300px]">
+        <div class="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    
+    <div id="login-prompt" class="hidden text-center py-8">
+        <p class="text-neutral-500 mb-4">Sign in to use this calculator and earn points</p>
+        <a href="https://www.defiuniversity.xyz/login" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">Sign In</a>
+    </div>
+    
+    <div id="calculator" class="hidden max-w-lg mx-auto">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <p class="text-xs text-blue-600 uppercase tracking-wider font-medium">Interactive Calculator</p>
+                <h1 class="text-xl font-semibold text-neutral-900 brand-font">LP Position Calculator</h1>
+            </div>
+            <div id="points-badge" class="hidden px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-600 text-xs font-semibold">
+                +25 pts earned!
+            </div>
+        </div>
+        
+        <div class="bg-white border border-neutral-200 rounded-xl p-6 space-y-5 shadow-sm">
+            <!-- Input Fields -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs text-neutral-600 mb-2 font-medium">Token A Amount</label>
+                    <input type="number" id="tokenA" value="1" min="0" step="0.01" class="w-full px-3 py-2 bg-white border border-neutral-200 rounded-lg text-neutral-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <p class="text-xs text-neutral-500 mt-1">e.g., ETH</p>
+                </div>
+                <div>
+                    <label class="block text-xs text-neutral-600 mb-2 font-medium">Token B Amount</label>
+                    <input type="number" id="tokenB" value="2000" min="0" step="0.01" class="w-full px-3 py-2 bg-white border border-neutral-200 rounded-lg text-neutral-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <p class="text-xs text-neutral-500 mt-1">e.g., USDC</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs text-neutral-600 mb-2 font-medium">Pool TVL ($)</label>
+                    <input type="number" id="poolTvl" value="10000000" min="0" class="w-full px-3 py-2 bg-white border border-neutral-200 rounded-lg text-neutral-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs text-neutral-600 mb-2 font-medium">Daily Volume ($)</label>
+                    <input type="number" id="dailyVolume" value="2000000" min="0" class="w-full px-3 py-2 bg-white border border-neutral-200 rounded-lg text-neutral-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                </div>
+            </div>
+            
+            <div>
+                <label class="block text-xs text-neutral-600 mb-2 font-medium">Fee Tier</label>
+                <select id="feeTier" class="w-full px-3 py-2 bg-white border border-neutral-200 rounded-lg text-neutral-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <option value="0.01">0.01% (Stablecoins)</option>
+                    <option value="0.05">0.05% (Stable pairs)</option>
+                    <option value="0.3" selected>0.30% (Standard)</option>
+                    <option value="1">1.00% (Exotic)</option>
+                </select>
+            </div>
+            
+            <button onclick="calculate()" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">
+                Calculate Position
+            </button>
+            
+            <!-- Results -->
+            <div id="results" class="hidden space-y-4 pt-4 border-t border-neutral-200">
+                <h3 class="text-sm font-semibold text-neutral-900 brand-font">Position Analysis</h3>
+                
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-3">
+                        <p class="text-xs text-neutral-500">Position Value</p>
+                        <p id="positionValue" class="text-lg font-semibold text-neutral-900">$0</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-3">
+                        <p class="text-xs text-neutral-500">Pool Share</p>
+                        <p id="poolShare" class="text-lg font-semibold text-blue-600">0%</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-3">
+                        <p class="text-xs text-neutral-500">Est. Daily Fees</p>
+                        <p id="dailyFees" class="text-lg font-semibold text-neutral-900">$0</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-3">
+                        <p class="text-xs text-neutral-500">Est. APR</p>
+                        <p id="estimatedApr" class="text-lg font-semibold text-blue-600">0%</p>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <p class="text-xs text-blue-600 mb-1 font-medium">Volume/TVL Ratio</p>
+                    <p id="volumeRatio" class="text-sm text-neutral-900">0x daily turnover</p>
+                    <p id="ratioAdvice" class="text-xs text-neutral-600 mt-1"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function calculate() {
+            const tokenA = parseFloat(document.getElementById('tokenA').value) || 0;
+            const tokenB = parseFloat(document.getElementById('tokenB').value) || 0;
+            const poolTvl = parseFloat(document.getElementById('poolTvl').value) || 1;
+            const dailyVolume = parseFloat(document.getElementById('dailyVolume').value) || 0;
+            const feeTier = parseFloat(document.getElementById('feeTier').value) / 100;
+            
+            // Assuming tokenB is the USD value (e.g., USDC)
+            const tokenAPrice = tokenB / tokenA;
+            const positionValue = tokenB * 2; // For 50/50 pool
+            
+            const poolShare = (positionValue / poolTvl) * 100;
+            const dailyFees = dailyVolume * feeTier * (poolShare / 100);
+            const yearlyFees = dailyFees * 365;
+            const apr = (yearlyFees / positionValue) * 100;
+            const volumeRatio = dailyVolume / poolTvl;
+            
+            // Update UI
+            document.getElementById('positionValue').textContent = `$${positionValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            document.getElementById('poolShare').textContent = `${poolShare.toFixed(4)}%`;
+            document.getElementById('dailyFees').textContent = `$${dailyFees.toFixed(2)}`;
+            document.getElementById('estimatedApr').textContent = `${apr.toFixed(2)}%`;
+            document.getElementById('volumeRatio').textContent = `${volumeRatio.toFixed(2)}x daily turnover`;
+            
+            // Advice based on ratio
+            let advice = '';
+            if (volumeRatio > 0.5) advice = 'High activity pool - good fee potential';
+            else if (volumeRatio > 0.1) advice = 'Moderate activity - balanced risk/reward';
+            else advice = 'Low activity - consider other pools';
+            document.getElementById('ratioAdvice').textContent = advice;
+            
+            document.getElementById('results').classList.remove('hidden');
+            
+            // Record interaction (first calculation only)
+            window.recordInteraction();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impermanent Loss Calculator | DeFi University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://api.defiuniversity.xyz/api';
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        window.courseId = urlParams.get('course') || 'liquidity-provision';
+        window.interactionId = urlParams.get('id') || 'il-calculator';
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                window.userToken = await user.getIdToken();
+                document.getElementById('calculator').classList.remove('hidden');
+                document.getElementById('login-prompt').classList.add('hidden');
+            } else {
+                document.getElementById('calculator').classList.add('hidden');
+                document.getElementById('login-prompt').classList.remove('hidden');
+            }
+            document.getElementById('loading').classList.add('hidden');
+        });
+        
+        window.recordInteraction = async function() {
+            if (!window.userToken || window.interactionRecorded) return;
+            try {
+                await fetch(`${API_BASE_URL}/progress/interaction`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${window.userToken}` },
+                    body: JSON.stringify({ courseId: window.courseId, interactionId: window.interactionId, type: 'calculator' })
+                });
+                window.interactionRecorded = true;
+                document.getElementById('points-badge').classList.remove('hidden');
+            } catch (e) { console.error(e); }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #ffffff; }
+        .brand-font { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="text-neutral-900 min-h-screen p-4 bg-white">
+    <div id="loading" class="flex items-center justify-center min-h-[300px]">
+        <div class="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    
+    <div id="login-prompt" class="hidden text-center py-8">
+        <p class="text-neutral-500 mb-4">Sign in to use this calculator and earn points</p>
+        <a href="https://www.defiuniversity.xyz/login" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">Sign In</a>
+    </div>
+    
+    <div id="calculator" class="hidden max-w-lg mx-auto">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <p class="text-xs text-blue-600 uppercase tracking-wider font-medium">Interactive Calculator</p>
+                <h1 class="text-xl font-semibold text-neutral-900 brand-font">Impermanent Loss Calculator</h1>
+            </div>
+            <div id="points-badge" class="hidden px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-600 text-xs font-semibold">+25 pts earned!</div>
+        </div>
+        
+        <div class="bg-white border border-neutral-200 rounded-xl p-6 space-y-5 shadow-sm">
+            <div>
+                <label class="block text-xs text-neutral-600 mb-2 font-medium">Initial Investment ($)</label>
+                <input type="number" id="investment" value="10000" min="0" class="w-full px-3 py-2 bg-white border border-neutral-200 rounded-lg text-neutral-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+            
+            <div>
+                <label class="block text-xs text-neutral-600 mb-2 font-medium">Price Change (%)</label>
+                <input type="range" id="priceChange" min="-90" max="500" value="50" class="w-full accent-blue-600">
+                <div class="flex justify-between text-xs text-neutral-500 mt-1">
+                    <span>-90%</span>
+                    <span id="priceChangeValue" class="text-blue-600 font-semibold">+50%</span>
+                    <span>+500%</span>
+                </div>
+            </div>
+            
+            <button onclick="calculate()" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">Calculate IL</button>
+            
+            <div id="results" class="hidden space-y-4 pt-4 border-t border-neutral-200">
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-3">
+                        <p class="text-xs text-neutral-500">If HODL'd</p>
+                        <p id="hodlValue" class="text-lg font-semibold text-neutral-900">$0</p>
+                    </div>
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-3">
+                        <p class="text-xs text-neutral-500">In LP</p>
+                        <p id="lpValue" class="text-lg font-semibold text-neutral-900">$0</p>
+                    </div>
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-3 col-span-2">
+                        <p class="text-xs text-red-600 font-medium">Impermanent Loss</p>
+                        <p id="ilAmount" class="text-xl font-bold text-red-600">$0</p>
+                        <p id="ilPercent" class="text-sm text-red-600">0%</p>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                    <p class="text-xs text-blue-600 font-medium mb-1">💡 Understanding IL</p>
+                    <p class="text-xs text-blue-800">Impermanent loss occurs when token prices diverge. The loss is "impermanent" because it only becomes permanent if you withdraw from the LP position at that price.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('priceChange').addEventListener('input', function() {
+            const value = parseInt(this.value);
+            document.getElementById('priceChangeValue').textContent = (value >= 0 ? '+' : '') + value + '%';
+        });
+        
+        function calculate() {
+            const investment = parseFloat(document.getElementById('investment').value) || 0;
+            const priceChange = parseFloat(document.getElementById('priceChange').value) / 100;
+            
+            // Simplified IL calculation for 50/50 pool
+            const hodlValue = investment * (1 + priceChange);
+            const lpValue = investment * 2 * Math.sqrt(1 + priceChange) / (1 + Math.sqrt(1 + priceChange));
+            const ilAmount = hodlValue - lpValue;
+            const ilPercent = (ilAmount / hodlValue) * 100;
+            
+            document.getElementById('hodlValue').textContent = `$${hodlValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            document.getElementById('lpValue').textContent = `$${lpValue.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            document.getElementById('ilAmount').textContent = `$${Math.abs(ilAmount).toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            document.getElementById('ilPercent').textContent = `${Math.abs(ilPercent).toFixed(2)}%`;
+            
+            document.getElementById('results').classList.remove('hidden');
+            window.recordInteraction();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP Position Simulator | DeFi University</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://api.defiuniversity.xyz/api';
+        let userToken = null;
+        let tracked = false;
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) userToken = await user.getIdToken();
+        });
+        
+        window.trackInteraction = async function() {
+            if (!tracked && userToken) {
+                tracked = true;
+                try {
+                    await fetch(`${API_BASE_URL}/progress/interaction`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${userToken}`
+                        },
+                        body: JSON.stringify({
+                            courseId: 'liquidity-provision',
+                            interactionId: 'lp-position-simulator',
+                            type: 'simulation'
+                        })
+                    });
+                } catch (e) {
+                    console.error('Tracking error:', e);
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 min-h-screen p-4 md:p-8">
+    <div class="max-w-3xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-semibold text-neutral-900 brand-font mb-2">LP Position Simulator</h1>
+            <p class="text-neutral-500">Simulate liquidity provision positions and returns</p>
+        </div>
+        
+        <!-- Simulator -->
+        <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+            <div class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-neutral-700 mb-2">Token A Amount</label>
+                        <input type="number" id="token-a" value="1000" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-neutral-700 mb-2">Token B Amount</label>
+                        <input type="number" id="token-b" value="2000" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Pool Fee (%)</label>
+                    <input type="number" id="pool-fee" value="0.3" step="0.01" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Daily Volume (USD)</label>
+                    <input type="number" id="daily-volume" value="100000" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Time Period (days)</label>
+                    <input type="number" id="days" value="30" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                </div>
+                <button onclick="simulatePosition()" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">
+                    Simulate Position
+                </button>
+            </div>
+            
+            <!-- Results -->
+            <div id="results" class="hidden mt-6 pt-6 border-t border-neutral-200 space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600">Total Fees Earned</span>
+                    <span id="fees-earned" class="text-green-600 font-bold text-lg">-</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600">APY Estimate</span>
+                    <span id="apy-estimate" class="text-blue-600 font-semibold">-</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600">Your Share of Fees</span>
+                    <span id="fee-share" class="text-neutral-900 font-semibold">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function simulatePosition() {
+            const tokenA = parseFloat(document.getElementById('token-a').value);
+            const tokenB = parseFloat(document.getElementById('token-b').value);
+            const poolFee = parseFloat(document.getElementById('pool-fee').value) / 100;
+            const dailyVolume = parseFloat(document.getElementById('daily-volume').value);
+            const days = parseFloat(document.getElementById('days').value);
+            
+            if (!tokenA || !tokenB || !poolFee || !dailyVolume || !days) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const lpValue = tokenA + tokenB;
+            const totalFees = dailyVolume * poolFee * days;
+            const feeShare = totalFees; // Simplified - assumes equal LP share
+            const apy = ((feeShare / lpValue) / days) * 365 * 100;
+            
+            document.getElementById('fees-earned').textContent = '$' + feeShare.toFixed(2);
+            document.getElementById('apy-estimate').textContent = apy.toFixed(2) + '%';
+            document.getElementById('fee-share').textContent = '$' + (feeShare / 100).toFixed(2); // Simplified share calculation
+            
+            document.getElementById('results').classList.remove('hidden');
+            
+            if (!tracked) {
+                window.trackInteraction();
+            }
+        }
+    </script>
+</body>
+</html>
