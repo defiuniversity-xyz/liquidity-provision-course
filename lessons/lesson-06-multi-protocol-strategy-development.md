@@ -14,9 +14,7 @@ course: liquidity-provision
 
 # Lesson 6: Multi-Protocol Strategy Development
 
-
 ![Multi-Protocol Portfolio Allocation](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_06/lp06_03_multi-protocol_portfolio_allocation.png)
-
 
 ## 🎯 Core Concept: One Size Doesn't Fit All
 
@@ -60,15 +58,11 @@ Different DEX protocols excel in different scenarios. Mastering multiple protoco
 - ❌ Most complex
 - ❌ Smaller ecosystem
 
-
 ![Protocol Comparison Matrix](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_06/lp06_01_protocol_comparison_matrix.png)
-
 
 ## 💰 Aerodrome: The ve-Token Model
 
 ### Understanding ve(3,3) Economics
-
-
 
 ![ve-Token Model Flowchart](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_06/lp06_02_ve-token_model_flowchart.png)
 
@@ -284,8 +278,6 @@ Use this tool to compare pool health metrics across different protocols and chai
 [![Pool Health Analyzer](images/interactives/pool-health-analyzer.png)](https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html)
 
 **[Launch Pool Health Analyzer →](https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html)**
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html?course=liquidity-provision&id=pool-health-analyzer" %}
 
 ## 🔑 Key Takeaways
 

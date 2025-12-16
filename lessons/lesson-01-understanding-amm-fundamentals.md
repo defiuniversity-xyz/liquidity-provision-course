@@ -55,9 +55,7 @@ AMMs replace order books with **liquidity pools** - smart contracts that hold re
 
 **Key Innovation**: Instead of waiting for someone to match your order, you trade directly against the pool's reserves.
 
-
 ![AMM vs Order Book Comparison](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_01/lp01_01_amm_vs_order_book_comparison.png)
-
 
 ## 🔢 The Constant Product Formula: x · y = k
 
@@ -97,9 +95,7 @@ The formula ensures:
 - **Price discovery**: Prices adjust automatically based on supply and demand
 - **No slippage protection needed**: The math handles it (though large trades still have impact)
 
-
 ![Constant Product Formula Visualization](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_01/lp01_02_constant_product_formula_visualization.png)
-
 
 ## 🏊 Understanding Liquidity Pools
 
@@ -128,9 +124,7 @@ When you provide liquidity:
 - You receive LP tokens representing 1% ownership
 - You earn 1% of all trading fees
 
-
 ![Liquidity Pool Components Diagram](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_01/lp01_03_liquidity_pool_components_diagram.png)
-
 
 ## 💰 How Fees Work
 
@@ -150,9 +144,7 @@ Every trade pays a fee (typically 0.3% for volatile pairs, 0.05% for stablecoins
 
 ⚠️ **Warning**: High APY numbers are misleading. They don't account for impermanent loss, which we'll cover in Lesson 3.
 
-
 ![Fee Distribution Flowchart](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_01/lp01_04_fee_distribution_flowchart.png)
-
 
 ## 🔄 The Trading Mechanism
 
@@ -254,8 +246,6 @@ Use this interactive tool to calculate slippage impact for different trade sizes
 [![Slippage Impact Calculator](images/interactives/slippage-impact-calculator.png)](https://defi-university-app.web.app/interactives/liquidity-provision/slippage-impact-calculator.html)
 
 **[Launch Slippage Impact Calculator →](https://defi-university-app.web.app/interactives/liquidity-provision/slippage-impact-calculator.html)**
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/slippage-impact-calculator.html?course=liquidity-provision&id=slippage-impact-calculator" %}
 
 ---
 

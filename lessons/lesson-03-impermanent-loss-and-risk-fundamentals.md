@@ -109,9 +109,7 @@ So you're actually **better off** in the LP when price drops? No—let's think a
 
 You still lost money compared to holding, just less than if you held only ETH.
 
-
 ![IL Mechanism Step-by-Step](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_03/lp03_03_il_mechanism_step-by-step.png)
-
 
 ## 📈 The Impermanent Loss Formula
 
@@ -197,9 +195,7 @@ This determines if LPing is profitable.
 
 **Reality**: In volatile markets, IL often exceeds fees, making LPing unprofitable.
 
-
 ![IL vs Fees Break-Even Analysis](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_03/lp03_02_il_vs_fees_break-even_analysis.png)
-
 
 ## 🎯 Risk Factors That Increase IL
 
@@ -324,9 +320,7 @@ In high-volatility pools:
 
 This is why professional LPs hedge their positions.
 
-
 ![LVR vs IL Comparison](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_03/lp03_04_lvr_vs_il_comparison.png)
-
 
 ## 🎓 Beginner's Corner: IL Myths Debunked
 
@@ -374,8 +368,6 @@ This is why professional LPs hedge their positions.
 ### Interactive Pool Health Analyzer
 
 Use this tool to analyze pool health metrics including TVL, volume, fees, and impermanent loss risk:
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/pool-health-analyzer.html?course=liquidity-provision&id=pool-health-analyzer" %}
 
 ---
 

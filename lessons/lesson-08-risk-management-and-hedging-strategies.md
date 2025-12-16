@@ -37,9 +37,7 @@ Professional LPs don't just earn fees—they manage risk. This lesson teaches ad
 - Permanent loss
 - Mitigated by: Audited protocols, diversification
 
-
 ![Three Types of Risk Framework](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_08/lp08_01_three_types_of_risk_framework.png)
-
 
 ## 📊 Delta Hedging Strategy
 
@@ -103,9 +101,7 @@ Professional LPs don't just earn fees—they manage risk. This lesson teaches ad
 - ❌ Want price exposure
 - ❌ Can't afford borrowing
 
-
 ![Delta Hedging Strategy Diagram](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_08/lp08_02_delta_hedging_strategy_diagram.png)
-
 
 ## 🔄 Portfolio Risk Management
 
@@ -139,9 +135,7 @@ Professional LPs don't just earn fees—they manage risk. This lesson teaches ad
 - Raydium SOL/USDC: $10k (10%)
 - Reserve: $70k (70%)
 
-
 ![Portfolio Risk Limits Framework](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_08/lp08_03_portfolio_risk_limits_framework.png)
-
 
 ## 🎯 LVR Mitigation Strategies
 
@@ -210,9 +204,7 @@ Professional LPs don't just earn fees—they manage risk. This lesson teaches ad
 - Call: Exercised (sell ETH at $2,200)
 - **Net: Premium + capped gains**
 
-
 ![Options Hedging Strategies](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_08/lp08_04_options_hedging_strategies.png)
-
 
 ## 📈 Risk Monitoring Dashboard
 
@@ -265,8 +257,6 @@ Use this tool to plan your rebalancing strategies and optimize risk management a
 [![Rebalancing Strategy Planner](images/interactives/rebalancing-strategy-planner.png)](https://defi-university-app.web.app/interactives/liquidity-provision/rebalancing-strategy-planner.html)
 
 **[Launch Rebalancing Strategy Planner →](https://defi-university-app.web.app/interactives/liquidity-provision/rebalancing-strategy-planner.html)**
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/rebalancing-strategy-planner.html?course=liquidity-provision&id=rebalancing-strategy-planner" %}
 
 ## 🔑 Key Takeaways
 

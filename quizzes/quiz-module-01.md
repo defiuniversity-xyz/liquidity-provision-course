@@ -22,8 +22,6 @@ Test your understanding of the core concepts from Module 1, covering AMM fundame
 
 **[Take Module 1 Quiz →](https://defi-university-app.web.app/quizzes/liquidity-provision/module-01-quiz.html)**
 
-{% embed url="https://defi-university-app.web.app/templates/quiz-template.html?course=liquidity-provision&module=module-01" %}
-
 ---
 
 ## After Completing the Quiz

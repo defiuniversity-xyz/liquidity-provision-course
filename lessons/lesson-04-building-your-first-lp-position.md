@@ -77,9 +77,7 @@ Ask yourself:
    - Deeper pools = less price impact
    - Check TVL (Total Value Locked)
 
-
 ![Pair Selection Decision Tree](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_04/lp04_01_pair_selection_decision_tree.png)
-
 
 ## 🌐 Step 2: Choose Your Network
 
@@ -121,9 +119,7 @@ Ask yourself:
 
 **Recommendation**: Start on **Arbitrum** or **Optimism** for best balance of liquidity and low fees.
 
-
 ![Network Comparison Chart](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_04/lp04_02_network_comparison_chart.png)
-
 
 ## 💰 Step 3: Calculate Your Position Size
 
@@ -193,9 +189,7 @@ Position Size = (Portfolio × Risk %) - (Gas Costs × Expected Transactions)
 - ✅ Never share private keys
 - ✅ Verify contract addresses before interacting
 
-
 ![First Position Setup Checklist](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_04/lp04_03_first_position_setup_checklist.png)
-
 
 ## 📱 Step 5: Navigate Uniswap Interface
 
@@ -439,8 +433,6 @@ Use this simulator to practice setting up your first LP position and see how dif
 [![LP Position Simulator](images/interactives/lp-position-simulator.png)](https://defi-university-app.web.app/interactives/liquidity-provision/lp-position-simulator.html)
 
 **[Launch LP Position Simulator →](https://defi-university-app.web.app/interactives/liquidity-provision/lp-position-simulator.html)**
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/lp-position-simulator.html?course=liquidity-provision&id=lp-position-simulator" %}
 
 ---
 

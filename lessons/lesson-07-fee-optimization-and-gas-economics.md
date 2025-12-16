@@ -64,9 +64,7 @@ Gas costs can eat your profits. This lesson teaches you to optimize fee tiers, m
 - Very new tokens
 - Extreme volatility expected
 
-
 ![Fee Tier Selection Guide](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_07/lp07_01_fee_tier_selection_guide.png)
-
 
 ## ⛽ Gas Economics: L1 vs L2
 
@@ -123,9 +121,7 @@ Gas costs can eat your profits. This lesson teaches you to optimize fee tiers, m
 - Use stable pairs (less IL, less rebalancing)
 - Monitor but don't over-manage
 
-
 ![Gas Cost Comparison Chart](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_07/lp07_02_gas_cost_comparison_chart.png)
-
 
 ## 📊 Volume/TVL Ratio Analysis
 
@@ -161,9 +157,7 @@ Gas costs can eat your profits. This lesson teaches you to optimize fee tiers, m
 
 **Result**: Pool A generates 20x more fees despite lower TVL!
 
-
 ![Volume/TVL Ratio Analysis](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_07/lp07_03_volumetvl_ratio_analysis.png)
-
 
 ## 💰 Fee Calculation Framework
 
@@ -301,8 +295,6 @@ V4 will allow custom fee logic via hooks:
 ### Interactive Fee Accumulation Calculator
 
 Use this calculator to compare fee accumulation across different fee tiers, protocols, and gas costs to optimize your profitability:
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/fee-accumulation-calculator.html?course=liquidity-provision&id=fee-accumulation-calculator" %}
 
 ## 🔑 Key Takeaways
 

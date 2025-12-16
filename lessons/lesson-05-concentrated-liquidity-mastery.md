@@ -44,9 +44,7 @@ Instead of providing liquidity across the entire price curve (0 to ∞), V3 lets
 - **V3** (±10% range): Need only $5,000 for the same
 - **Efficiency Gain**: 20x
 
-
 ![V2 vs V3 Capital Efficiency Comparison](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_05/lp05_01_v2_vs_v3_capital_efficiency_comparison.png)
-
 
 ### The Double-Edged Sword
 
@@ -99,9 +97,7 @@ Instead of providing liquidity across the entire price curve (0 to ∞), V3 lets
 
 **Example**: USDC/DAI at $1.00, range $0.999 - $1.001
 
-
 ![Range Selection Strategy Matrix](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_05/lp05_02_range_selection_strategy_matrix.png)
-
 
 ## 🔢 Understanding Ticks
 
@@ -141,9 +137,7 @@ To save gas, pools use "tick spacing":
 
 **Result**: Range might be tick -1000 to tick +1000 (example)
 
-
 ![Tick System Visualization](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_05/lp05_03_tick_system_visualization.png)
-
 
 ## 💰 Fee Accumulation in V3
 
@@ -214,9 +208,7 @@ To save gas, pools use "tick spacing":
    - Create new position around current price
    - Set appropriate range width
 
-
 ![Out-of-Range Scenario Diagram](https://storage.googleapis.com/liquidity-provision-gitbook-images/lessons/lesson_05/lp05_04_out-of-range_scenario_diagram.png)
-
 
 ## 🎓 Beginner's Corner: V3 Common Mistakes
 
@@ -314,8 +306,6 @@ Use this tool to optimize your Uniswap V3 concentrated liquidity positions by ca
 [![Concentrated Liquidity Optimizer](images/interactives/concentrated-liquidity-optimizer.png)](https://defi-university-app.web.app/interactives/liquidity-provision/concentrated-liquidity-optimizer.html)
 
 **[Launch Concentrated Liquidity Optimizer →](https://defi-university-app.web.app/interactives/liquidity-provision/concentrated-liquidity-optimizer.html)**
-
-{% embed url="https://defi-university-app.web.app/interactives/liquidity-provision/concentrated-liquidity-optimizer.html?course=liquidity-provision&id=concentrated-liquidity-optimizer" %}
 
 ## 🔑 Key Takeaways
 
