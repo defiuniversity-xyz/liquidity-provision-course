@@ -4,7 +4,11 @@ lesson_number: 4
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-04/audio/lesson4%20Blueprint_Your_First_Safe_DEX_Liquidity_Position.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-04/video/lesson4%20Your_First_DeFi_Expedition.mp4" %}
 

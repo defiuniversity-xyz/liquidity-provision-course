@@ -4,7 +4,11 @@ lesson_number: 3
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-03/audio/lesson3%20Stop_Losing_Money_To_Impermanent_Loss.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-03/video/lesson3%20The_Hidden_Cost_of_High_APYs.mp4" %}
 

@@ -4,7 +4,11 @@ lesson_number: 10
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-10/audio/lesson10%20Stop_Just-In-Time_Liquidity_Stealing_LP_Fees.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-10/video/lesson10%20MEV_%26_JIT_Liquidity.mp4" %}
 

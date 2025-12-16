@@ -4,7 +4,11 @@ lesson_number: 5
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-05/audio/lesson5%20Mastering_Uniswap_V3_Concentrated_Liquidity_Risks.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-05/video/lesson5%20Uniswap_V3__The_4000x_Edge.mp4" %}
 

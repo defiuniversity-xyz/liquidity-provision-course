@@ -4,7 +4,11 @@ lesson_number: 12
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-12/audio/lesson12%20Blueprint_to_Professional_DeFi_Liquidity_Provision.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-12/video/lesson12%20Professional_LP__A_Blueprint.mp4" %}
 

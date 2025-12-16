@@ -4,7 +4,11 @@ lesson_number: 1
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-01/audio/lesson1%20AMM_Explained_The_%24x__cdot_y_%3D_k%24_Formula.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-01/video/lesson1%20Automated_Market_Makers.mp4" %}
 

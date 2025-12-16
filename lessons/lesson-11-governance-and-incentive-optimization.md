@@ -4,7 +4,11 @@ lesson_number: 11
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-11/audio/lesson11%20Mastering_veToken_Protocol_Governance_Strategy.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-11/video/lesson11%20Mastering_ve-Token_Governance.mp4" %}
 

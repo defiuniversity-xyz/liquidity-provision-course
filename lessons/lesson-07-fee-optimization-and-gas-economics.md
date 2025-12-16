@@ -4,7 +4,11 @@ lesson_number: 7
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-07/audio/lesson7%20Calculate_Your_Net_DeFi_LP_Profitability.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-07/video/lesson7%20The_Hidden_Cost_of_High_APYs.mp4" %}
 

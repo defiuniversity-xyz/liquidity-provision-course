@@ -4,7 +4,11 @@ lesson_number: 2
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-02/audio/lesson2%20Automated_Market_Maker_Math_Constant_Product_Explained.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-02/video/lesson2%20AMM_Math__The_Crypto_Code.mp4" %}
 

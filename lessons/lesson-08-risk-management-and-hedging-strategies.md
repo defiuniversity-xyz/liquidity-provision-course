@@ -4,7 +4,11 @@ lesson_number: 8
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-08/audio/lesson8%20DeFi_Risk_Management_Portfolio_Fortification_Strategy.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-08/video/lesson8%20Pro_LP_s_Guide_to_Risk.mp4" %}
 

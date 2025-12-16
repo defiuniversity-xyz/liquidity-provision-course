@@ -4,7 +4,11 @@ lesson_number: 9
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-09/audio/lesson9%20Uniswap_V4_Hooks_Flash_Accounting_Explained.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-09/video/lesson9%20V4__Programmable_Liquidity.mp4" %}
 

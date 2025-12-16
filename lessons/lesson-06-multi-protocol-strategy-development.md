@@ -4,7 +4,11 @@ lesson_number: 6
 course: liquidity-provision
 ---
 
+## 🎧 Lesson Podcast
+
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-06/audio/lesson6%20DEX_Strategy_Cross-Protocol_Analysis_Uniswap_Aerodrome_Raydium.m4a" %}
+
+## 🎬 Video Overview
 
 {% embed url="https://storage.googleapis.com/liquidity-provision-media/lesson-06/video/lesson6%20Your_Multi-Protocol_Strategy.mp4" %}
 
